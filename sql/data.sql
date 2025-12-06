@@ -4,14 +4,12 @@ CREATE TABLE Product (
     price DECIMAL(10, 2) NOT NULL,
     creation_datetime TIMESTAMP NOT NULL
 );
-
 CREATE TABLE Product_category (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     product_id INT NOT NULL,
     FOREIGN KEY (product_id) REFERENCES Product(id) ON DELETE CASCADE
 );
-
 
 INSERT INTO Product (name, price, creation_datetime) VALUES
 ('Laptop Dell XPS', 4500.00, '2024-01-15 09:30:00'),
@@ -29,7 +27,6 @@ INSERT INTO Product_category (name, product_id) VALUES
 ('Bureau', 5),
 ('Mobile', 2);
 
-
 SELECT p.*, pc.name as category
 FROM Product p
 JOIN Product_category pc ON p.id = pc.product_id
@@ -37,7 +34,6 @@ WHERE p.name ILIKE '%lap%'
   AND pc.name ILIKE '%info%' 
 ORDER BY p.creation_datetime DESC
 LIMIT 10 OFFSET 0;
-
 
 SELECT * FROM Product
 WHERE name ILIKE '%phone%'
@@ -49,7 +45,6 @@ JOIN Product_category pc ON p.id = pc.product_id
 WHERE p.price > 100
 ORDER BY p.price DESC
 LIMIT 5;
-
 
 SELECT p.*, pc.name as category
 FROM Product p
