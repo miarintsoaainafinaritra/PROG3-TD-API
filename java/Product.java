@@ -6,8 +6,7 @@ public class Product {
     private String name;
     private BigDecimal price;
     private Instant creationDateTime;
-
-   
+    
     public Product(int id, String name, BigDecimal price, Instant creationDateTime) {
         this.id = id;
         this.name = name;
@@ -15,7 +14,6 @@ public class Product {
         this.creationDateTime = creationDateTime;
     }
 
- 
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
 
